@@ -39,55 +39,31 @@ exit:
     ret
 
 syscall0:
-    push %rbp
-    mov %rbp, %rsp
-
     mov %rdi, %rax
     # mov $0, %rdi
     syscall
-
-    mov %rsp, %rbp
-    pop %rbp
     ret
 
 syscall1:
-    push %rbp
-    mov %rbp, %rsp
-
     mov %rdi, %rax
     mov %rsi, %rdi
     # mov $0, %rsi
     syscall
-
-    mov %rsp, %rbp
-    pop %rbp
     ret
 
 syscall2:
-    push %rbp
-    mov %rbp, %rsp
-
     mov %rdi, %rax
     mov %rsi, %rdi
     mov %rdx, %rsi
     # mov $0, %rdx
     syscall
-
-    mov %rsp, %rbp
-    pop %rbp
     ret
 
 syscall3:
-    push %rbp
-    mov %rbp, %rsp
-
     mov %rdi, %rax
     mov %rsi, %rdi
     mov %rdx, %rsi
     mov %rcx, %rdx
     # mov $0, %rcx
     syscall
-
-    mov %rsp, %rbp
-    pop %rbp
     ret

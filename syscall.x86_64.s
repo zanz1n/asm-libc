@@ -1,3 +1,5 @@
+.section .text
+
 .global read
 .global write
 .global open
@@ -11,10 +13,8 @@
 
 // Function arg order: %rdi, %rsi, %rdx, %rcx, %r8 %r9.
 
-.section .text
-
 read:
-    movq $0, %rax
+    mov $0, %rax
     syscall
     ret
 

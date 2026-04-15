@@ -1,12 +1,16 @@
+.section .text
 .global _start
+.extern main
 
 _start:
     // argc
-    pop %rdi
+    mov (%esp), %eax
     // argv
-    mov %rsp, %rsi
+    lea 4(%esp), %ebx
+    push %ebx
+    push %eax
     call main
 
     // mov return value of main before call to exit
-    mov %rax, %rdi
+    mov %eax, %ebx
     call exit

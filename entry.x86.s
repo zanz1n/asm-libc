@@ -1,16 +1,19 @@
+.intel_syntax noprefix
+
 .section .text
 .global _start
 .extern main
 
 _start:
     // argc
-    mov (%esp), %eax
-    // argv
-    lea 4(%esp), %ebx
-    push %ebx
-    push %eax
+    pop ecx
+    mov ebx,esp
+    push ebx
+    push ecx
     call main
 
     // mov return value of main before call to exit
-    mov %eax, %ebx
-    call exit
+    mov ebx, eax
+    mov eax, 1
+    int 0x80
+    ret

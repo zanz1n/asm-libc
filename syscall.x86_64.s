@@ -1,3 +1,5 @@
+.intel_syntax noprefix
+
 .section .text
 
 .global read
@@ -14,56 +16,56 @@
 // Function arg order: %rdi, %rsi, %rdx, %rcx, %r8 %r9.
 
 read:
-    mov $0, %rax
+    mov rax, 0
     syscall
     ret
 
 write:
-    mov $1, %rax
+    mov rax, 1
     syscall
     ret
 
 open:
-    mov $2, %rax
+    mov rax, 2
     syscall
     ret
 
 close:
-    mov $3, %rax
+    mov rax, 3
     syscall
     ret
 
 exit:
-    mov $60, %rax
+    mov rax, 60
     syscall
     ret
 
 syscall0:
-    mov %rdi, %rax
+    mov rdi, rax
     # mov $0, %rdi
     syscall
     ret
 
 syscall1:
-    mov %rdi, %rax
-    mov %rsi, %rdi
+    mov rdi, rax
+    mov rsi, rdi
     # mov $0, %rsi
     syscall
     ret
 
 syscall2:
-    mov %rdi, %rax
-    mov %rsi, %rdi
-    mov %rdx, %rsi
+    mov rdi, rax
+    mov rsi, rdi
+    mov rdx, rsi
     # mov $0, %rdx
     syscall
     ret
 
 syscall3:
-    mov %rdi, %rax
-    mov %rsi, %rdi
-    mov %rdx, %rsi
-    mov %rcx, %rdx
+    mov rdi, rax
+    mov rsi, rdi
+    mov rdx, rsi
+    mov rcx, rdx
     # mov $0, %rcx
     syscall
     ret

@@ -1,14 +1,16 @@
+.intel_syntax noprefix
+
 .section .text
 .global _start
 .extern main
 
 _start:
     // argc
-    pop %rdi
+    pop rdi
     // argv
-    mov %rsp, %rsi
+    mov rsi, rsp
     call main
 
     // mov return value of main before call to exit
-    mov %rax, %rdi
+    mov rdi, rax
     call exit
